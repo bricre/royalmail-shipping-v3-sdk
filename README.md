@@ -1,11 +1,11 @@
-# Royal Mail Tracking (for Server-side app) v2 REST API PHP SDK
+# Royal Mail Shipping v3 REST API PHP SDK
 
 PHP SDK generated from [RoyalMail](https://developer.royalmail.net/)'s Swagger File
 
-[![Latest Stable Version](https://poser.pugx.org/bricre/royalmail-tracking-v2-sdk/v)](https:://packagist.org/packages/bricre/royalmail-tracking-v2-sdk)
-[![Total Downloads](https://poser.pugx.org/bricre/royalmail-tracking-v2-sdk/downloads)](https:://packagist.org/packages/bricre/royalmail-tracking-v2-sdk)
-[![License](https://poser.pugx.org/bricre/royalmail-tracking-v2-sdk/license)](https:://packagist.org/packages/bricre/royalmail-tracking-v2-sdk)
-[![codecov](https://codecov.io/gh/bricre/royalmail-tracking-v2-sdk/branch/master/graph/badge.svg?token=OVYRXPSW2Y)](https://codecov.io/gh/bricre/royalmail-tracking-v2-sdk)
+[![Latest Stable Version](https://poser.pugx.org/bricre/royalmail-shipping-v3-sdk/v)](https:://packagist.org/packages/bricre/royalmail-shipping-v3-sdk)
+[![Total Downloads](https://poser.pugx.org/bricre/royalmail-shipping-v3-sdk/downloads)](https:://packagist.org/packages/bricre/royalmail-shipping-v3-sdk)
+[![License](https://poser.pugx.org/bricre/royalmail-shipping-v3-sdk/license)](https:://packagist.org/packages/bricre/royalmail-shipping-v3-sdk)
+[![codecov](https://codecov.io/gh/bricre/royalmail-shipping-v3-sdk/branch/master/graph/badge.svg?token=OVYRXPSW2Y)](https://codecov.io/gh/bricre/royalmail-shipping-v3-sdk)
 
 ## Usage
 
@@ -18,9 +18,8 @@ application's initialization stage:
 <?php
 use GuzzleHttp\Client as Guzzle;
 use OpenAPI\Runtime\Client;
-use OpenAPI\Runtime\ResponseHandler\JsonPsrResponseHandler;
-use OpenAPI\Runtime\ResponseHandlerStack;
-use RoyalMail\SDK\V2Tracking\ResponseTypes;
+use OpenAPI\Runtime\SimplePsrResponseHandlerStack;
+use RoyalMail\SDK\V3Shipping\ResponseTypes;
 
 Client::configure(
     new Guzzle([
@@ -32,9 +31,7 @@ Client::configure(
             'X-IBM-Client-Secret' => getenv('X-IBM-Client-Secret'),
         ]
     ]),
-    new ResponseHandlerStack([
-        JsonPsrResponseHandler::setResponseTypes(new ResponseTypes())
-    ]),
+    new SimplePsrResponseHandlerStack(new ResponseTypes()),
 );
 ```
 
