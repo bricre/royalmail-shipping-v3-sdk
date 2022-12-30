@@ -41,5 +41,10 @@
   },
   "scripts": {
     "generate": "vendor/bin/openapi-code-generator generate -c ./code-generator-config.php -f ./\"Royal Mail API Shipping V3 (REST).yaml\""
+  },
+  "config": {
+    "platform": {
+        "php": "7.4.0"
+    }
   }
 }
